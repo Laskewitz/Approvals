@@ -1,0 +1,845 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Power Automate - Approval Actions",
+    "description": "Cancel, reassign, list & respond to approvals"
+  },
+  "host": "api.flow.microsoft.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/pplatform.onmicrosoft.com/oauth2/token": {},
+    "/providers/Microsoft.ProcessSimple/environments/72e87f56-e215-43d4-8883-5cf7ff5550f5/approvalViews": {},
+    "/providers/Microsoft.ProcessSimple/environments/72e87f56-e215-43d4-8883-5cf7ff5550f5/approvals/0b659654-429f-4ea4-89bd-91674d374059/cancel": {},
+    "/providers/Microsoft.ProcessSimple/environments/72e87f56-e215-43d4-8883-5cf7ff5550f5/approvals/0b659654-429f-4ea4-89bd-91674d374059/reassign": {},
+    "/providers/Microsoft.ProcessSimple/environments/72e87f56-e215-43d4-8883-5cf7ff5550f5/approvals/0b659654-429f-4ea4-89bd-91674d374059/approvalResponses": {},
+    "/providers/Microsoft.ProcessSimple/environments/{environment_name}/approvals/{approval_name}/approvalResponses": {
+      "post": {
+        "summary": "Approve or Reject Approval",
+        "description": "Approve or Reject Approval",
+        "operationId": "SetApprovalResponse",
+        "parameters": [
+          {
+            "name": "environment_name",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "default": "72e87f56-e215-43d4-8883-5cf7ff5550f5"
+          },
+          {
+            "name": "approval_name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "default": "2016-11-01"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "response": {
+                      "type": "string",
+                      "description": "response"
+                    },
+                    "comments": {
+                      "type": "string",
+                      "description": "comments"
+                    }
+                  },
+                  "description": "properties"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "name"
+                },
+                "id": {
+                  "type": "string",
+                  "description": "id"
+                },
+                "type": {
+                  "type": "string",
+                  "description": "type"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "stage": {
+                      "type": "string",
+                      "description": "stage"
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "status"
+                    },
+                    "creationDate": {
+                      "type": "string",
+                      "description": "creationDate"
+                    },
+                    "owner": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "id"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "type"
+                        },
+                        "tenantId": {
+                          "type": "string",
+                          "description": "tenantId"
+                        }
+                      },
+                      "description": "owner"
+                    },
+                    "response": {
+                      "type": "string",
+                      "description": "response"
+                    }
+                  },
+                  "description": "properties"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/providers/Microsoft.ProcessSimple/environments/{environment_name}/approvals/{approval_name}/cancel": {
+      "post": {
+        "summary": "Cancel an Approval",
+        "description": "Cancel an Approval",
+        "operationId": "CancelApproval",
+        "parameters": [
+          {
+            "name": "environment_name",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "default": "72e87f56-e215-43d4-8883-5cf7ff5550f5",
+            "x-ms-summary": "Environment"
+          },
+          {
+            "name": "approval_name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "default": "2016-11-01"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "name"
+                },
+                "id": {
+                  "type": "string",
+                  "description": "id"
+                },
+                "type": {
+                  "type": "string",
+                  "description": "type"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string",
+                      "description": "title"
+                    },
+                    "details": {
+                      "type": "string",
+                      "description": "details"
+                    },
+                    "result": {
+                      "type": "string",
+                      "description": "result"
+                    },
+                    "stage": {
+                      "type": "string",
+                      "description": "stage"
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "status"
+                    },
+                    "creationDate": {
+                      "type": "string",
+                      "description": "creationDate"
+                    },
+                    "completionDate": {
+                      "type": "string",
+                      "description": "completionDate"
+                    },
+                    "owner": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "id"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "type"
+                        },
+                        "tenantId": {
+                          "type": "string",
+                          "description": "tenantId"
+                        }
+                      },
+                      "description": "owner"
+                    },
+                    "response": {
+                      "type": "string",
+                      "description": "response"
+                    }
+                  },
+                  "description": "properties"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/providers/Microsoft.ProcessSimple/environments/{environment}/approvalViews": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "description": "name"
+                      },
+                      "id": {
+                        "type": "string",
+                        "description": "id"
+                      },
+                      "type": {
+                        "type": "string",
+                        "description": "type"
+                      },
+                      "properties": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "description": "type"
+                          },
+                          "isActive": {
+                            "type": "boolean",
+                            "description": "isActive"
+                          },
+                          "userRoles": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "userRoles"
+                          },
+                          "owner": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "description": "id"
+                              },
+                              "type": {
+                                "type": "string",
+                                "description": "type"
+                              },
+                              "tenantId": {
+                                "type": "string",
+                                "description": "tenantId"
+                              }
+                            },
+                            "description": "owner"
+                          },
+                          "creator": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "description": "id"
+                              },
+                              "type": {
+                                "type": "string",
+                                "description": "type"
+                              },
+                              "tenantId": {
+                                "type": "string",
+                                "description": "tenantId"
+                              }
+                            },
+                            "description": "creator"
+                          },
+                          "title": {
+                            "type": "string",
+                            "description": "title"
+                          },
+                          "result": {
+                            "type": "string",
+                            "description": "result"
+                          },
+                          "allowCancel": {
+                            "type": "boolean",
+                            "description": "allowCancel"
+                          },
+                          "creationDate": {
+                            "type": "string",
+                            "description": "creationDate"
+                          },
+                          "dueDate": {
+                            "type": "string",
+                            "description": "dueDate"
+                          },
+                          "expirationDate": {
+                            "type": "string",
+                            "description": "expirationDate"
+                          },
+                          "userRequest": {
+                            "type": "object",
+                            "properties": {
+                              "stage": {
+                                "type": "string",
+                                "description": "stage"
+                              },
+                              "creationDate": {
+                                "type": "string",
+                                "description": "creationDate"
+                              },
+                              "dueDate": {
+                                "type": "string",
+                                "description": "dueDate"
+                              },
+                              "expirationDate": {
+                                "type": "string",
+                                "description": "expirationDate"
+                              },
+                              "assignedTo": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "string",
+                                    "description": "id"
+                                  },
+                                  "type": {
+                                    "type": "string",
+                                    "description": "type"
+                                  },
+                                  "tenantId": {
+                                    "type": "string",
+                                    "description": "tenantId"
+                                  }
+                                },
+                                "description": "assignedTo"
+                              },
+                              "allowReassignment": {
+                                "type": "boolean",
+                                "description": "allowReassignment"
+                              },
+                              "isReassigned": {
+                                "type": "boolean",
+                                "description": "isReassigned"
+                              },
+                              "responseOptions": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "description": "responseOptions"
+                              }
+                            },
+                            "description": "userRequest"
+                          },
+                          "completionDate": {
+                            "type": "string",
+                            "description": "completionDate"
+                          },
+                          "approvers": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "approvers"
+                          },
+                          "principals": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string",
+                                  "description": "id"
+                                },
+                                "displayName": {
+                                  "type": "string",
+                                  "description": "displayName"
+                                },
+                                "email": {
+                                  "type": "string",
+                                  "description": "email"
+                                },
+                                "type": {
+                                  "type": "string",
+                                  "description": "type"
+                                },
+                                "tenantId": {
+                                  "type": "string",
+                                  "description": "tenantId"
+                                },
+                                "userPrincipalName": {
+                                  "type": "string",
+                                  "description": "userPrincipalName"
+                                },
+                                "thumbnailPhoto": {
+                                  "type": "string",
+                                  "description": "thumbnailPhoto"
+                                }
+                              }
+                            },
+                            "description": "principals"
+                          }
+                        },
+                        "description": "properties"
+                      }
+                    }
+                  },
+                  "description": "value"
+                },
+                "nextLink": {
+                  "type": "string",
+                  "description": "nextLink"
+                }
+              }
+            }
+          }
+        },
+        "summary": "List Approvals",
+        "description": "List Approvals in an environment",
+        "operationId": "GetApprovals",
+        "parameters": [
+          {
+            "name": "environment",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "default": "72e87f56-e215-43d4-8883-5cf7ff5550f5"
+          },
+          {
+            "name": "$top",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "default": 50
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "default": "properties/userRole eq 'Owner' and properties/isActive eq 'true'"
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "default": "2016-11-01"
+          }
+        ]
+      }
+    },
+    "/providers/Microsoft.ProcessSimple/environments/{environment-name}/approvals/{approval-name}/approvalRequests": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The name of the approval request",
+                    "title": "Approval Request Name"
+                  },
+                  "id": {
+                    "type": "string",
+                    "description": "ID of the approval request",
+                    "title": "ID"
+                  },
+                  "type": {
+                    "type": "string",
+                    "description": "The type of the approval request",
+                    "title": "Type-"
+                  },
+                  "properties": {
+                    "type": "object",
+                    "properties": {
+                      "stage": {
+                        "type": "string",
+                        "description": "The stage of the approval request",
+                        "title": "Stage"
+                      },
+                      "creationDate": {
+                        "type": "string",
+                        "description": "Creation date of the approval request",
+                        "title": "Creation Date"
+                      },
+                      "dueDate": {
+                        "type": "string",
+                        "description": "Due date of the approval request",
+                        "title": "Due Date"
+                      },
+                      "expirationDate": {
+                        "type": "string",
+                        "description": "Expiration date of the approval request",
+                        "title": "Expiration Date"
+                      },
+                      "assignedTo": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "ID of the person where the approval has been assigned to",
+                            "title": "Assigned To ID"
+                          },
+                          "type": {
+                            "type": "string",
+                            "description": "The type of the person where the approval is assigned to",
+                            "title": "Type"
+                          },
+                          "tenantId": {
+                            "type": "string",
+                            "description": "Tenant ID of the person where the approval is assigned to",
+                            "title": "Assigned To Tenant ID"
+                          }
+                        },
+                        "description": "assignedTo"
+                      },
+                      "notificationFrequency": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "The notification frequency of the approval request",
+                        "title": "Notification Frequency"
+                      },
+                      "lastNotificationDate": {
+                        "type": "string",
+                        "description": "Last notification date of the approval request",
+                        "title": "Last Notification Date"
+                      },
+                      "allowReassignment": {
+                        "type": "boolean",
+                        "description": "This property will tell you if reassignment possible or not with this approval request",
+                        "title": "Allow Reassignment",
+                        "enum": [
+                          "",
+                          "true",
+                          "false"
+                        ]
+                      },
+                      "isReassigned": {
+                        "type": "boolean",
+                        "description": "This property will tell you if the approval request has been reassigned or not",
+                        "title": "Is Reassigned",
+                        "enum": [
+                          "",
+                          "true",
+                          "false"
+                        ]
+                      },
+                      "responseOptions": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "description": "responseOptions"
+                      },
+                      "responseOptionsType": {
+                        "type": "string",
+                        "description": "The type of the approval (for instance basic approve reject)",
+                        "title": "Response Options Type"
+                      }
+                    },
+                    "description": "properties"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Get Approval Requests",
+        "operationId": "GetApprovalRequests",
+        "parameters": [
+          {
+            "name": "environment-name",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "x-ms-summary": "Environment",
+            "description": "The name of the environment (default-GUID or GUID)"
+          },
+          {
+            "name": "approval-name",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "x-ms-summary": "Approval",
+            "description": "The name of the approval (GUID)"
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "default": "2016-11-01",
+            "description": "The API version"
+          }
+        ],
+        "description": "Get approval requests that are attached to an attachment"
+      }
+    },
+    "/providers/Microsoft.ProcessSimple/environments/{environment-name}/approvals/{approval-name}/approvalRequests/{approvalrequest-name}/reassign": {
+      "post": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The name of the approval request that has been reassigned",
+                    "title": "Name"
+                  },
+                  "id": {
+                    "type": "string",
+                    "description": "The ID of the approval request that has been reassigned",
+                    "title": "ID"
+                  },
+                  "type": {
+                    "type": "string",
+                    "description": "The type of the reassigned approval",
+                    "title": "Type"
+                  },
+                  "properties": {
+                    "type": "object",
+                    "properties": {
+                      "stage": {
+                        "type": "string",
+                        "description": "The stage of the reassigned approval",
+                        "title": "Stage"
+                      },
+                      "creationDate": {
+                        "type": "string",
+                        "description": "The creation date of the approval that has been reassigned",
+                        "title": "Creation Date"
+                      },
+                      "dueDate": {
+                        "type": "string",
+                        "description": "The due date of the approval that has been reassigned",
+                        "title": "Due Date"
+                      },
+                      "expirationDate": {
+                        "type": "string",
+                        "description": "The expiration date of the approval that has been reassigned",
+                        "title": "Expiration Date"
+                      },
+                      "assignedTo": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "id",
+                            "title": "Assigned To ID"
+                          },
+                          "type": {
+                            "type": "string",
+                            "description": "The type of the person that the approval request has been assigned to",
+                            "title": "Assigned To Type"
+                          },
+                          "tenantId": {
+                            "type": "string",
+                            "description": "The tenant ID of the person that the approval request has been assigned to",
+                            "title": "Assigned To Tenant ID"
+                          }
+                        },
+                        "description": "assignedTo"
+                      },
+                      "notificationFrequency": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "The notification frequency of the reassigned approval",
+                        "title": "Notification Frequency"
+                      },
+                      "lastNotificationDate": {
+                        "type": "string",
+                        "description": "Last notification date of the reassigned approval",
+                        "title": "Last Notification Date"
+                      },
+                      "allowReassignment": {
+                        "type": "boolean",
+                        "description": "This shows the value of the allow reassignment option of the approval request that has been reassigned",
+                        "title": "Allow Reassignment",
+                        "enum": [
+                          "",
+                          "true",
+                          "false"
+                        ]
+                      },
+                      "isReassigned": {
+                        "type": "boolean",
+                        "description": "This property will tell you if the reassigned approval has been reassigned or not",
+                        "title": "Is Reassigned",
+                        "enum": [
+                          "",
+                          "true",
+                          "false"
+                        ]
+                      },
+                      "responseOptions": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "description": "responseOptions"
+                      },
+                      "responseOptionsType": {
+                        "type": "string",
+                        "description": "The type of the reassigned approval (for instance basic approve reject)",
+                        "title": "Response Options Type"
+                      }
+                    },
+                    "description": "properties"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Reassign an Approval",
+        "operationId": "ReassignApproval",
+        "description": "This action will give you a way to reassign approvals",
+        "parameters": [
+          {
+            "name": "environment-name",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "x-ms-summary": "Environment",
+            "description": "The name of the environment (default-GUID or GUID)"
+          },
+          {
+            "name": "approval-name",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the approval (GUID)",
+            "x-ms-summary": "Approval"
+          },
+          {
+            "name": "approvalrequest-name",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "x-ms-summary": "Approval request",
+            "description": "The name of the approval request (GUID)"
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "default": "2016-11-01",
+            "x-ms-summary": "API version"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "AssignedTo": {
+                  "type": "string",
+                  "description": "AssignedTo"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {
+    "oauth2_auth": {
+      "type": "oauth2",
+      "flow": "accessCode",
+      "authorizationUrl": "https://login.windows.net/common/oauth2/authorize",
+      "tokenUrl": "https://login.windows.net/common/oauth2/authorize",
+      "scopes": {}
+    }
+  },
+  "security": [
+    {
+      "oauth2_auth": []
+    }
+  ],
+  "tags": []
+}
